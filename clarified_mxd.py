@@ -16,20 +16,19 @@ def main():
     #raw_mxd = raw_input('    1. What is the full directory of the mxd you want to clarify? --> ')
     raw_gdb = raw_input('    2. What do you want to to call the gdb? --> ')
     start = timeit.default_timer()
-    #print("\n    PROCESSING")
-    #arcpy.CreateFileGDB_management(root, raw_gdb)
-    #mxd = arcpy.mapping.MapDocument(raw_mxd)
-    #raw_sources = []
+    print("\n    PROCESSING")
+    arcpy.CreateFileGDB_management(root, raw_gdb)
+    mxd = arcpy.mapping.MapDocument(raw_mxd)
+    raw_sources = []
     # Creates a list of data sources
-    #for lyr in arcpy.mapping.ListLayers(mxd):
-        #if lyr.supports("DATASOURCE"):
-            #raw_sources.append(lyr.dataSource)
+    for lyr in arcpy.mapping.ListLayers(mxd):
+        if lyr.supports("DATASOURCE"):
+            raw_sources.append(lyr.dataSource)
     # Remove duplicate list values
-    #sources = list(set(raw_sources))
+    sources = list(set(raw_sources))
     # Populates the gdb.
-    #arcpy.FeatureClassToGeodatabase_conversion(sources , root + "\\" + raw_gdb + ".gdb")
+    arcpy.FeatureClassToGeodatabase_conversion(sources , root + "\\" + raw_gdb + ".gdb")
     # Zip gdb
-    #ZipFile( raw_gdb + '.zip', mode='w').write(raw_gdb + ".gdb")
     outFile = raw_gdb + '.zip'
     gdbName = os.path.basename(raw_gdb)
     with zipfile.ZipFile(outFile,mode='w',compression=zipfile.ZIP_DEFLATED,allowZip64=True) as myzip:
