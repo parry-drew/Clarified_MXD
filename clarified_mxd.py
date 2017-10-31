@@ -13,7 +13,7 @@ import os, datetime, timeit, shutil, zipfile, arcpy
 root = os.path.abspath(os.path.curdir)
 
 def main():
-    #raw_mxd = raw_input('    1. What is the full directory of the mxd you want to clarify? --> ')
+    raw_mxd = raw_input('    1. What is the full directory of the mxd you want to clarify? --> ')
     raw_gdb = raw_input('    2. What do you want to to call the gdb? --> ')
     start = timeit.default_timer()
     print("\n    PROCESSING")
