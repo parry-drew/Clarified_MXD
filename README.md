@@ -8,7 +8,7 @@ This script will create and populate a file gdb with all the unique data sources
 2. Change Directory and run the python script
 ```
 cd project_directory
-C:\Python27\ArcGIS10.4\python.exe clarified_mxd.py
+C:\Python27\ArcGIS10.8\python.exe clarified_mxd.py
 ```
 3. You will be prompted to provide the full directory for your mxd. Just drag and drop the file into the command line window and click enter.
 
